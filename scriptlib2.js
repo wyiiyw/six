@@ -18,7 +18,7 @@ $(document).ready(function(){
     $("button#get_data").click(function() {
         var items = [];
         var i = 0;
-        var airtable_read_endpoint = "https://api.airtable.com/v0/appwL9Dtl54LTLPOH/Concert%20Tickets?api_key=YOUR_API_KEY";
+        var airtable_read_endpoint = "https://api.airtable.com/v0/appwL9Dtl54LTLPOH/Concert%20Tickets?api_key=key2uwrms0Q8wkXEY";
         var dataSet = [];
         $.getJSON(airtable_read_endpoint, function(result) {
                $.each(result.records, function(key,value) {
