@@ -18,16 +18,16 @@ $(document).ready(function(){
     $("button#get_data").click(function() {
         var items = [];
         var i = 0;
-        var airtable_read_endpoint = "https//api.airtable.com/v0/appMVqVQA38Q0p5gm/Imported%20table?api_key=YOUR_API_KEY;"
+        var airtable_read_endpoint = "https//api.airtable.com/v0/appwL9Dtl54LTLPOH/Concert%20Tickets?api_key=YOUR_API_KEY"
         var dataSet = [];
         $.getJSON(airtable_read_endpoint, function(result) {
                $.each(result.records, function(key,value) {
                    items = [];
-                       items.push(value.fields.Name);
-                       items.push(value.fields.price);
-                       items.push(value.fields.The_same_type_artist);
-                       items.push(value.fields.amount);
-
+                       items.push(value.fields.artist_name);
+                       items.push(value.fields.artist_gross);
+                       items.push(value.fields.artist_artist_tourname);
+                       items.push(value.fields.artist_artist_attendance);
+                       items.push(value.fields.artist_artist_averageattdance);
                        dataSet.push(items);
                        console.log(items);
                 }); // end .each
@@ -37,13 +37,15 @@ $(document).ready(function(){
                  data: dataSet,
                  retrieve: true,
                  columns: [
-                     { title: "Name",
+                     { title: "artist_name",
                        defaultContent:""},
-                     { title: "price",
+                     { title: "artist_gross",
                          defaultContent:"" },
-                     { title: "The_same_type_artist",
+                     { title: "artist_artist_tourname",
                        defaultContent:"" },
-                     { title: "amount",
+                     { title: "artist_artist_attendance",
+                       defaultContent:""},
+                     { title: "artist_artist_averageattdance",
                        defaultContent:""},
                    
                  ]
